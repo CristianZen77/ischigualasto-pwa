@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parque Provincial Ischigualasto</title>
+    <link rel="manifest" href="/manifest.webmanifest">
+    <meta name="theme-color" content="#FF6600">
+    <link rel="icon" type="image/png" sizes="192x192" href="/images/icon-192x192.png">
+    <link rel="apple-touch-icon" href="/images/icon-192x192.png">
+</head>
+<body>
+    <script>
+        // Registrar el Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registrado exitosamente');
+                    })
+                    .catch(error => {
+                        console.log('Error al registrar el ServiceWorker:', error);
+                    });
+            });
+        }
+
+        // Redirigir a la página principal de Ischigualasto
+        window.location.href = 'https://www.ischigualasto.gob.ar/';
+    </script>
+</body>
+</html>

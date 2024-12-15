@@ -1,0 +1,21 @@
+{
+    "name": "Ischigualasto",
+    "short_name": "Ischigualasto",
+    "description": "Parque Provincial Ischigualasto - Valle de la Luna",
+    "start_url": "https://www.ischigualasto.gob.ar/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#ff6600",
+    "icons": [
+        {
+            "src": "icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
