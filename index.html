@@ -4,17 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parque Provincial Ischigualasto</title>
-    <link rel="manifest" href="/manifest.webmanifest">
+    <link rel="manifest" href="./manifest.json">
     <meta name="theme-color" content="#FF6600">
-    <link rel="icon" type="image/png" sizes="192x192" href="/images/icon-192x192.png">
-    <link rel="apple-touch-icon" href="/images/icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192x192.png">
+    <link rel="apple-touch-icon" href="./icons/icon-192x192.png">
+    <meta name="description" content="Aplicación del Parque Provincial Ischigualasto - Valle de la Luna">
 </head>
 <body>
     <script>
         // Registrar el Service Worker
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
+                navigator.serviceWorker.register('./sw.js')
                     .then(registration => {
                         console.log('ServiceWorker registrado exitosamente');
                     })
