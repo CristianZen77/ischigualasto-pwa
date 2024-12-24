@@ -1,0 +1,30 @@
+:root {
+    --primary-color: #000000;  /* Negro puro para el header */
+    --secondary-color: #1a1a1a; /* Negro ligeramente más claro para el footer */
+}
+
+/* Estilos para el header */
+header, 
+.header,
+.app-header {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+}
+
+/* Estilos para el footer */
+footer,
+.footer,
+.app-footer,
+nav[role="navigation"],
+.bottom-navigation {
+    background-color: var(--secondary-color) !important;
+    color: white !important;
+}
+
+/* Estilos para los botones y elementos interactivos */
+.button,
+.btn,
+button {
+    background-color: var(--primary-color);
+    color: white;
+}
