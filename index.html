@@ -2,18 +2,37 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Parque Provincial Ischigualasto</title>
     <link rel="manifest" href="./manifest.json">
     <meta name="theme-color" content="#000000">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <link rel="icon" type="image/png" sizes="512x512" href="./original_icon.png">
     <link rel="apple-touch-icon" href="./original_icon.png">
     <meta name="description" content="Aplicación del Parque Provincial Ischigualasto - Valle de la Luna">
     <link rel="stylesheet" href="./styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+            color: white;
+        }
+    </style>
 </head>
 <body>
     <script>
-        // Registrar el Service Worker
+        // Limpiar caché del service worker
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.getRegistrations().then(function(registrations) {
+                for(let registration of registrations) {
+                    registration.unregister();
+                }
+            });
+        }
+        
+        // Registrar el nuevo service worker
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('./sw.js')
@@ -23,6 +42,17 @@
                     .catch(error => {
                         console.log('Error al registrar el ServiceWorker:', error);
                     });
+            });
+        }
+
+        // Limpiar caché del navegador
+        if ('caches' in window) {
+            caches.keys().then(function(cacheNames) {
+                return Promise.all(
+                    cacheNames.map(function(cacheName) {
+                        return caches.delete(cacheName);
+                    })
+                );
             });
         }
 
